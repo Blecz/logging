@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+<Appenders>
+    <Console name="consoleJson" target="SYSTEM_OUT">
+        <JsonLayout complete="false" includeStacktrace="false" compact="false" properties="false" eventEol="true">
+            <KeyValuePair key="flowName" value="$${ctx:flow.name:-}"/>
+            <KeyValuePair key="url" value="$${ctx:url:-}"/>
+            <KeyValuePair key="httpStatus" value="$${ctx:http.status:-}"/>
+            <KeyValuePair key="executionTime" value="$${ctx:execution.time:-}"/>
+            <KeyValuePair key="infoMessage" value="$${ctx:info:-}"/>
+            <KeyValuePair key="errorMessage" value="$${ctx:error:-}"/>
+        </JsonLayout>
+    </Console>
+</Appenders>
+<Loggers>
+    <Root level="info">
+        <AppenderRef ref="consoleJson"/>
+    </Root>
+</Loggers>
+</Configuration>
